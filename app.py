@@ -50,11 +50,7 @@ def main():
     except:
       print("w")
       return render_template("home.html")
-    else:
-      return render_template("signin.html")
-
-
-
+      
 @app.route("/signin", methods =["GET", "POST"])
 def signin():
   if request.method == 'GET' :
