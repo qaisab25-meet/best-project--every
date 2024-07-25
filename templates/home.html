@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+</head>
+<body>
+    <form action="/" method="POST">
+        <a href = "/report"> report a user</a>
+    <h1> Home Page</h1>
+
+        {% if essay_data %}
+        <ul>
+            {% for essay_id, essay in essay_data.items() %}
+                <li>{{ essay['essay_text'] }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No essays found or write your essay to see the other essays</p>
+    {% endif %}
+
+    <a href="/essays">Write an essay</a>
+    <a href="/ai">use ai to help you with writing your essay</a>
+
+    <form action="/signout" method="POST">
+        <button type="submit">Sign Out</button>
+    </form>
+    <style> 
+body {background-color: #FFFDD0;}
+
+
+
+
+
+
+
+
+
+
+    </style>
+</body>
+</html>

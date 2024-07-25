@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>signup</title>
+</head>
+<body>
+    <form action="/" method="POST">
+        <label for="username">Enter your username:</label>
+        <input type="text" id="username" name="username" placeholder="Username" required>
+        <label for="email">email :</label>
+        <input type="text" id="email" name="email" placeholder="email" required>
+        <label for="password">password :</label>
+        <input type="text" id="password" name="password" placeholder="password" required>
+        <button type="submit">sign up:</button>
+    </form>
+    <a href="/signin">already have an account? signin</a>
+    <style> @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;  
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #FFFDD0; 
+}
+
+
+form {
+  max-width: 600px;
+  padding: 40px;
+  background-color: #F8C794; 
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.9); 
+}
+
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  color: #FFFDD0; 
+</style>
+</body>
+</html>

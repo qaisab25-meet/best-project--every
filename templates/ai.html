@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ai</title>
+    <style> 
+        body {background-color: #FFFDD0;}
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <h1>AI to help you write your essays</h1>
+
+    <a href="/report">Report a user</a><br>
+    <a href="/essays">Write an essay</a><br>
+    <form action="/signout" method="POST">
+        <button type="submit">Sign Out</button>
+   </form>
+<form id="essayForm">
+        <label for="essayPrompt">Enter your essay prompt:</label><br>
+        <input type="text" id="essayPrompt" name="essayPrompt"><br><br>
+        <button type="submit">Generate Essay</button>
+    </form>
+        <!-- made this by myself -->
+    <div id="essayOutput"></div>
+    </form>
+
+<script type="module">
+    import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
+
+    const API_KEY = "AIzaSyCH-18m0IMw1hcr0n5cfy-cP4rUreYL9sw";
+    const genAI = new GoogleGenerativeAI(API_KEY);
+    async function generateEssay(prompt) {
+            const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+            const result = await model.generateContent(prompt);
+            const response = await result.response;
+            return response.text();
+        }  // copied this from the api thing
+
+
+    document.getElementById('essayForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const prompt = document.getElementById('essayPrompt').value;
+    const outputDiv = document.getElementById('essayOutput');
+    // https://ai.google.dev/gemini-api/docs/get-started/tutorial?lang=web#generate-text-from-text-input   this helped 
+    outputDiv.textContent = 'Generating essay...';
+    
+    const essay = await generateEssay(prompt);
+    outputDiv.textContent = essay;
+});
+ 
+</script>
+
+</body>
+</html>
+
